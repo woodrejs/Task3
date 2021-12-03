@@ -1,13 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 //components
 import Toggle from "react-toggle";
+//utils
+import { toggleTheme } from "../../redux/app.slice";
 
 export default function Toggler({ className, title }) {
   //hooks
   const [isActive, setIsActive] = useState(false);
+  const dispatch = useDispatch();
   //handlers
   const handleChange = () => setIsActive(!isActive);
+
+  useEffect(() => {
+    const theme = isActive ? "dark" : "light";
+    dispatch(toggleTheme(theme));
+  }, [isActive]);
 
   return (
     <Container className={className}>
@@ -31,4 +40,5 @@ const Title = styled.span`
   text-transform: uppercase;
   opacity: 0.55;
   margin-left: 10px;
+  color: ${({ theme }) => theme.colors.dark};
 `;

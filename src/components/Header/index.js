@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
+
 const Container = styled.header``;
 const Box = styled.div`
   display: inline-block;
@@ -10,12 +11,14 @@ const Title = styled.h1`
   text-transform: uppercase;
   font-size: 32px;
   font-weight: 800;
+  color: ${({ theme }) => theme.colors.dark};
 `;
 const SubTitle = styled.h3`
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 800;
   opacity: 0.55;
+  color: ${({ theme }) => theme.colors.dark};
 `;
 
 export default function Header() {
@@ -24,6 +27,7 @@ export default function Header() {
       <Box>
         <Title children="zadanie III" />
         <SubTitle children="react" />
+     
       </Box>
     </Container>
   );

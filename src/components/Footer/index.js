@@ -29,10 +29,11 @@ const Author = styled.span`
 
   text-align: start;
   padding-left: 40px;
+  color: ${({ theme }) => theme.colors.dark};
 
   @media ${device.tablet} {
     text-align: center;
-    padding-left: "unset";
+    padding-left: 0;
   }
 `;
 const ThemeToggler = styled(Toggler)`

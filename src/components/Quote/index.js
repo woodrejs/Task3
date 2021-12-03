@@ -2,12 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { device } from "../../utils/media";
 
-const q =
-  "Czym jest życie, co w nim jest najważniejsze, co się liczy, co jest wartościowe, po co żyjemy, co to jest szczęście, czym jest miłość, ile warte jest zdrowie?";
-export default function Quote({ className }) {
+export default function Quote({ className, single }) {
+  if (!single) return null;
+
   return (
     <Container className={className}>
-      <Title children={`"${q}"`} />
+      <Title children={`"${single.quote}"`} />
+      <Author children={single.author} />
     </Container>
   );
 }
@@ -21,12 +22,23 @@ const Title = styled.h1`
   font-size: 18px;
   line-height: 160%;
   max-width: 90%;
-  font-weight: 00;
+  font-weight: 800;
   text-align: center;
   margin: 0 auto;
+  color: ${({ theme }) => theme.colors.dark};
 
   @media ${device.tablet} {
     font-size: 27px;
     line-height: 150%;
   }
+`;
+const Author = styled.h5`
+  padding: 10px;
+  font-size: 18px;
+  font-style: italic;
+  max-width: 90%;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 auto;
+  color: ${({ theme }) => theme.colors.dark};
 `;
