@@ -2,9 +2,11 @@ import React, { useEffect } from "react";
 import styled from "styled-components";
 import { ThemeProvider } from "styled-components";
 import { useSelector } from "react-redux";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 //components
 import Home from "./screens/Home";
-import Error from "./screens/Error";
+import Page404 from "./screens/404.js";
+import Error from "./components/Error";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import Loader from "./components/Loader";
@@ -28,8 +30,12 @@ export default function App() {
     <ThemeProvider theme={theme === "dark" ? dark : light}>
       <Container>
         <Header />
-        {/* place for router*/}
-        <Home />
+        <Router>
+          <Routes>
+            <Route path={"/"} element={<Home />} exact />
+            <Route path={"*"} element={<Page404 />} />
+          </Routes>
+        </Router>
         <Footer />
       </Container>
     </ThemeProvider>

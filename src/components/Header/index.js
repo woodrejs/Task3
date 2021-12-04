@@ -1,7 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-
+export default function Header() {
+  return (
+    <Container>
+      <Box>
+        <Title children="zadanie III" />
+        <SubTitle children="react" />
+      </Box>
+    </Container>
+  );
+}
+//styles
 const Container = styled.header``;
 const Box = styled.div`
   display: inline-block;
@@ -20,15 +30,3 @@ const SubTitle = styled.h3`
   opacity: 0.55;
   color: ${({ theme }) => theme.colors.dark};
 `;
-
-export default function Header() {
-  return (
-    <Container>
-      <Box>
-        <Title children="zadanie III" />
-        <SubTitle children="react" />
-     
-      </Box>
-    </Container>
-  );
-}

@@ -1,24 +1,17 @@
 import React from "react";
 import styled from "styled-components";
-import { useSelector, useDispatch } from "react-redux";
+import { Link } from "react-router-dom";
 //components
 import CircleButton from "../components/CircleButton";
-//utils
-import { closeError } from "../redux/error.slice";
 
-export default function Error() {
-  const message = useSelector(({ errorSlice }) => errorSlice.message);
-  const dispatch = useDispatch();
-
-  const handleBtn = () => dispatch(closeError());
-
+export default function Page404() {
   return (
     <Container>
-      <Box>
-        <Title children="Error" />
-        <Message children={message} />
-        <CircleButton handler={handleBtn} invert />
-      </Box>
+      <Title children="404" />
+      <SubTitle children="Strona o podanym adresie nie istnieje." />
+      <Link to="/">
+        <CircleButton />
+      </Link>
     </Container>
   );
 }
@@ -35,23 +28,20 @@ const Container = styled.div`
   justify-content: center;
   align-items: center;
 `;
-const Box = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
 const Title = styled.h1`
   text-align: center;
   text-transform: uppercase;
   font-size: 32px;
   font-weight: 800;
   margin-bottom: 10px;
+  color: ${({ theme }) => theme.colors.dark};
 `;
-const Message = styled.h3`
+const SubTitle = styled.h3`
   text-align: center;
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 800;
   opacity: 0.55;
   margin-bottom: 40px;
+  color: ${({ theme }) => theme.colors.dark};
 `;
