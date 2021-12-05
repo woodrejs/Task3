@@ -1,12 +1,19 @@
-import React from "react";
+import React, { useRef, useLayoutEffect } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 import { device } from "../../utils/media";
 
 export default function Quote({ className, single }) {
+  const ref = useRef(null);
+
+  useLayoutEffect(() => {
+    gsap.fromTo(ref.current, { opacity: 0 }, { duration: 2, opacity: 1, ease: "power2" });
+  });
+
   if (!single) return null;
 
   return (
-    <Container className={className}>
+    <Container className={className} ref={ref}>
       <Title children={`"${single.quote}"`} />
       <Author children={single.author} />
     </Container>

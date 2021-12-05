@@ -4,6 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 //components
 import CircleButton from "../components/CircleButton";
 import Quote from "../components/Quote";
+import Transition from "../components/Transition";
 //utils
 import { addSingle } from "../redux/quotes.slice";
 import { getRndInteger } from "../utils/functions";
@@ -29,6 +30,7 @@ export default function Home() {
 
   return (
     <Container>
+      <Transition />
       <Quote single={single} />
       <Box>
         <CircleButton title="poprzedni" handler={handlePrev} />

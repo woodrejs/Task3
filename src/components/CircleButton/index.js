@@ -1,18 +1,32 @@
-import React from "react";
+import React, { useRef } from "react";
 import styled from "styled-components";
+import gsap from "gsap";
 //assets
 import arrow_icon from "./arrow_icon.svg";
 
 export default function CircleButton({ invert = false, handler = null }) {
+  const ref = useRef(null);
+
+  const handleMouseEnter = () => {
+    gsap.to(ref.current, { duration: 0.3, opacity: 0.8 });
+  };
+  const handleMouseOut = () => {
+    gsap.to(ref.current, { duration: 0.3, opacity: 1 });
+  };
+
   return (
-    <Container onClick={handler}>
+    <Container
+      ref={ref}
+      onClick={handler}
+      onMouseEnter={handleMouseEnter}
+      onMouseOut={handleMouseOut}
+    >
       <Icon src={arrow_icon} alt="arrow_button" invert={invert} />
     </Container>
   );
 }
 
 //styles
-
 const Container = styled.div`
   display: flex;
   justify-content: space-between;
