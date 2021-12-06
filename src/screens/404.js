@@ -9,7 +9,7 @@ export default function Page404() {
     <Container>
       <Title children="404" />
       <SubTitle children="Strona o podanym adresie nie istnieje." />
-      <Link to="/">
+      <Link to="/Task3">
         <CircleButton />
       </Link>
     </Container>
