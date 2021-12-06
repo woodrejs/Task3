@@ -8,4 +8,4 @@
 
 ## Preview
 
-![no-whitespace.jpg](https://i.postimg.cc/x8tY1HBR/III.jpg)]
+![no-whitespace.jpg](https://i.postimg.cc/pLS3yJC0/III-1.jpg)]
